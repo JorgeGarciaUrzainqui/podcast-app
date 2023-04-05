@@ -15,7 +15,7 @@ import './PodcastCard.css';
  * @param {string} props.podcastInfo.podcastName - information regarding the podcast
  * @param {string} props.podcastInfo.podcastImage - information regarding the podcast
  * @param {string} props.podcastInfo.podcastAuthor - information regarding the podcast
- * @param {Function} props.onPodcastCardClick - action executed when the postcard is clicked
+ * @param {Function} props.onPodcastCardClick - action executed when the podcast is clicked
  * @returns JSX.Element the podcast card component
  */
 const PodcastCard = ({ podcastInfo, onPodcastCardClick }) => {
