@@ -1,0 +1,13 @@
+.podcastFilter {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.podcastFilter-text {
+  background-color: darkcyan;
+  color: azure;
+  border-radius: 10%;
+}
+
+.podcastFilter-filter {
+}
