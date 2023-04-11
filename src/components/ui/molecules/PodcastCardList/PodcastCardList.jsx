@@ -16,7 +16,7 @@ const PodcastCardList = ({ podcastList, onPodcastCardClick, filterValue }) => {
   const renderPodcastList = getPodcastListToRender(podcastList, filterValue);
 
   return (
-    <div>
+    <div data-testid="podcastCardList">
       {renderPodcastList &&
         renderPodcastList.map((renderPodCast) => {
           return (
