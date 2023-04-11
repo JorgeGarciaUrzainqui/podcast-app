@@ -1,3 +1,6 @@
+import { redirect } from 'react-router-dom';
+
+import { MAIN_PAGE_ROUTER_PATH } from '../../../../constants';
 import ClickableText from '../../molecules/ClickableText/ClickableText';
 import './NavigationBar.css';
 
@@ -7,15 +10,15 @@ import './NavigationBar.css';
  * @returns JSX.Element - the navigation bar component
  */
 const NavigationBar = () => {
-  const handleNavigation = (destination) => {
-    console.log({ destination });
+  const handleNavigation = (navigationUrl) => {
+    redirect(navigationUrl);
   };
 
   return (
     <div data-testid="navigationBar" className="navigationBar">
       <ClickableText
         text="Podcaster"
-        onClickText={() => handleNavigation('main')}
+        onClickText={() => handleNavigation(MAIN_PAGE_ROUTER_PATH)}
         variantClass="navigationBar-mainPage"
         testId="navigationBar-mainPage"
       />
