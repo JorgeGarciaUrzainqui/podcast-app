@@ -1,0 +1,8 @@
+.navigationBar {
+  width: 100%;
+}
+
+.navigationBar .clickableText-text {
+  color: aqua;
+  cursor: pointer;
+}
