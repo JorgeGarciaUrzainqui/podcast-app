@@ -1,4 +1,4 @@
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { MAIN_PAGE_ROUTER_PATH } from '../../../../constants';
 import ClickableText from '../../molecules/ClickableText/ClickableText';
@@ -10,8 +10,10 @@ import './NavigationBar.css';
  * @returns JSX.Element - the navigation bar component
  */
 const NavigationBar = () => {
+  const navigate = useNavigate();
+
   const handleNavigation = (navigationUrl) => {
-    redirect(navigationUrl);
+    navigate(navigationUrl);
   };
 
   return (

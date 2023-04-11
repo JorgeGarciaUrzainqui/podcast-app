@@ -8,15 +8,10 @@ describe('Navigation Bar component', () => {
   const NAVIGATION_BAR_TESTID = 'navigationBar';
   const MAIN_PAGE_LINK_TESTID = 'navigationBar-mainPage';
 
-  vi.mock('react-router-dom', () => {
-    return {
-      redirect: vi.fn()
-    };
-  });
-
-  beforeEach(() => {
-    vi.clearAllMocks();
-  });
+  vi.mock('react-router-dom', () => ({
+    ...vi.importActual('react-router-dom'),
+    useNavigate: () => vi.fn()
+  }));
 
   it('should render without crash', () => {
     render(<NavigationBar />);
@@ -29,15 +24,18 @@ describe('Navigation Bar component', () => {
   });
 
   it('should launch navigation to main page url path', async () => {
-    const reactRouterDomMocked = await import('react-router-dom');
+    const reactRouterDOM = await import('react-router-dom');
 
-    const mockRedirect = vi.spyOn(reactRouterDomMocked, 'redirect');
+    const mockNavigate = vi.fn();
+    vi.spyOn(reactRouterDOM, 'useNavigate').mockImplementation(
+      () => mockNavigate
+    );
 
     render(<NavigationBar />);
 
     fireEvent.click(screen.getByTestId(`${MAIN_PAGE_LINK_TESTID}-container`));
 
-    expect(mockRedirect).toHaveBeenCalledTimes(1);
-    expect(mockRedirect).toHaveBeenCalledWith(MAIN_PAGE_ROUTER_PATH);
+    expect(mockNavigate).toHaveBeenCalledTimes(1);
+    expect(mockNavigate).toHaveBeenCalledWith(MAIN_PAGE_ROUTER_PATH);
   });
 });
