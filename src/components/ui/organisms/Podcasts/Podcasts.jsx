@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
+import {
+  PODCASTID_PARAM,
+  PODCAST_DETAIL_PAGE_ROUTER_PATH
+} from '../../../../constants';
 import PodcastFilter from '../../molecules/PodcastFilter';
 import PodcastCardList from '../../molecules/PodcastCardList';
 import usePodcasts from '../../../../hooks/usePodcasts';
@@ -12,6 +17,7 @@ import usePodcasts from '../../../../hooks/usePodcasts';
 const Podcasts = () => {
   const [filter, setFilter] = useState('');
   const { podcasts, isLoading } = usePodcasts();
+  const navigate = useNavigate();
 
   const handleFilterChange = (e) => {
     e.stopPropagation();
@@ -19,7 +25,16 @@ const Podcasts = () => {
   };
 
   const navigateToPodcast = (podcastId) => {
-    console.log({ podcastId });
+    const podcastInfo = podcasts.find(
+      (podcast) => podcast.podcastId === podcastId
+    );
+
+    const navigationUrl = PODCAST_DETAIL_PAGE_ROUTER_PATH.replace(
+      PODCASTID_PARAM,
+      podcastId
+    );
+
+    navigate(navigationUrl, { podcastInfo });
   };
 
   return (
