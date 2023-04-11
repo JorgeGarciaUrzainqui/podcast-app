@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
+
+import configureRouter from './configureRouter';
 import './index.css';
 
 const router = configureRouter();
