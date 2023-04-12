@@ -14,16 +14,6 @@ export async function getAllPersistedPodcasts() {
 }
 
 /**
- * Retrive a single podcast persisted in client side
- *
- * @param {string} podcastId - the podcast id to look for stored in client side
- * @returns
- */
-export async function getPersistedPodcast(podcastId) {
-  return podcastsPersistance.getDataById(podcastId);
-}
-
-/**
  * Persist a list of podcast into client side storage
  *
  * @param {object[]} podcastList - the list of podcast to be stored in client side
