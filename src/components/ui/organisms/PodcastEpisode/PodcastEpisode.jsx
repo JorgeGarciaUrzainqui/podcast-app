@@ -33,7 +33,7 @@ const PodcastEpisode = () => {
     <div className="podcastEpisode">
       <PodcastSideBar
         podcastInfo={podcastInfo}
-        onPodcastDetailClick={handlePodcastSideBarClick}
+        onPodcastSideBarClick={handlePodcastSideBarClick}
       />
       <EpisodePlayer episodeInfo={episodeInfo} />
     </div>
