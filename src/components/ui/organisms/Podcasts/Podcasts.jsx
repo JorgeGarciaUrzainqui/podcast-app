@@ -5,9 +5,9 @@ import {
   PODCASTID_PARAM,
   PODCAST_DETAIL_PAGE_ROUTER_PATH
 } from '../../../../constants';
+import usePodcasts from '../../../../hooks/usePodcasts';
 import PodcastFilter from '../../molecules/PodcastFilter';
 import PodcastCardList from '../../molecules/PodcastCardList';
-import usePodcasts from '../../../../hooks/usePodcasts';
 
 /**
  * Renders the main page body with podcasts
@@ -34,7 +34,7 @@ const Podcasts = () => {
       podcastId
     );
 
-    navigate(navigationUrl, { podcastInfo });
+    navigate(navigationUrl, { state: { podcastInfo } });
   };
 
   return (
