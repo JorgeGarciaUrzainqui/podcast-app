@@ -5,8 +5,10 @@ import {
   PODCAST_DETAIL_PAGE_ROUTER_PATH,
   PODCAST_EPISODE_PAGE_ROUTER_PATH
 } from './constants';
-import MainPage from './components/pages/MainPage/MainPage';
 import ErrorPage from './components/pages/ErrorPage';
+import MainPage from './components/pages/MainPage/MainPage';
+import PodcastPage from './components/pages/PodcastPage';
+import EpisodePage from './components/pages/EpisodePage';
 
 export default function configureRouter() {
   const router = createBrowserRouter([
@@ -17,12 +19,12 @@ export default function configureRouter() {
     },
     {
       path: PODCAST_DETAIL_PAGE_ROUTER_PATH,
-      element: <h1>Podcast Detail Page</h1>,
+      element: <PodcastPage />,
       errorElement: <ErrorPage />
     },
     {
       path: PODCAST_EPISODE_PAGE_ROUTER_PATH,
-      element: <h1>Podcast Episode Page</h1>,
+      element: <EpisodePage />,
       errorElement: <ErrorPage />
     }
   ]);
