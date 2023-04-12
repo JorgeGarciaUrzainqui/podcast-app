@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PodcastCard from '../PodcastCard';
+import PodcastCard from './PodcastCard';
 import { getPodcastListToRender } from './getPodcastListToRender';
 
 /**

@@ -1,8 +1,8 @@
 import { describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import PodcastCard from '../../../../../src/components/ui/molecules/PodcastCard/PodcastCard';
-import { PODCASTCARD_AUTHOR_LABEL } from '../../../../../src/constants';
+import PodcastCard from '../../../../../../src/components/ui/molecules/PodcastCardList/PodcastCard';
+import { PODCASTCARD_AUTHOR_LABEL } from '../../../../../../src/constants';
 
 describe('Podcast Card component', () => {
   const podcastId = '1234';

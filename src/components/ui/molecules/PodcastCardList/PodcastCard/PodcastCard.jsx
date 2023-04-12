@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { PODCASTCARD_AUTHOR_LABEL } from '../../../../constants';
-import ClickableContainer from '../../atoms/ClickableContainer';
-import Image from '../../atoms/Image';
-import Text from '../../atoms/Text';
+import { PODCASTCARD_AUTHOR_LABEL } from '../../../../../constants';
+import ClickableContainer from '../../../atoms/ClickableContainer';
+import Image from '../../../atoms/Image';
+import Text from '../../../atoms/Text';
 import './PodcastCard.css';
 
 /**
