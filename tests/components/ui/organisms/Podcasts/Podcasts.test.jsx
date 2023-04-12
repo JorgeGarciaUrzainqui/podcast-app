@@ -51,9 +51,13 @@ describe('Podcasts component', () => {
       'Podcast01'
     );
     const expectedPayload = {
-      podcastId: 'Podcast01',
-      podcastName: ' Podcast 01',
-      podcastAuthor: 'Author 01'
+      state: {
+        podcastInfo: {
+          podcastId: 'Podcast01',
+          podcastName: ' Podcast 01',
+          podcastAuthor: 'Author 01'
+        }
+      }
     };
 
     render(<Podcasts />);
@@ -63,8 +67,6 @@ describe('Podcasts component', () => {
     fireEvent.click(postcastCardList[0]);
 
     expect(mockNavigate).toHaveBeenCalledTimes(1);
-    expect(mockNavigate).toHaveBeenCalledWith(expectedURL, {
-      podcastInfo: expectedPayload
-    });
+    expect(mockNavigate).toHaveBeenCalledWith(expectedURL, expectedPayload);
   });
 });
