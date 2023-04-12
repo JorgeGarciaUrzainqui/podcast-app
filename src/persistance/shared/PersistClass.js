@@ -12,6 +12,10 @@ export class PersistClass {
     throw new Error('getDataById method should be implemented');
   }
 
+  async getDataByProperty(_property, _propertyValue) {
+    throw new Error('getDataByProperty method should be implemented');
+  }
+
   async saveData(_dataList) {
     throw new Error('saveData method should be implemented');
   }

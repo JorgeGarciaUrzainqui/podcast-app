@@ -81,6 +81,34 @@ export class IDBPersistClass extends PersistClass {
     });
   }
 
+  async getDataByProperty(property, propertyValue) {
+    const db = await this.openDatabase();
+
+    return new Promise((resolve) => {
+      const request = db
+        .transaction([this.databaseName])
+        .objectStore(this.databaseName)
+        .index(property)
+        .getAll(IDBKeyRange.only(propertyValue));
+
+      request.onsuccess = (event) => {
+        const dataList = event.target.result;
+
+        if (!dataList) {
+          resolve([]);
+          return;
+        }
+
+        resolve(dataList);
+      };
+
+      request.onerror = (event) => {
+        console.error(`Database error ${event.target.errorCode}`);
+        resolve([]);
+      };
+    });
+  }
+
   async saveData(dataList) {
     const persistDataPromises = dataList.map(async function (data) {
       return this.saveDataById(data[this.keyPath], data);

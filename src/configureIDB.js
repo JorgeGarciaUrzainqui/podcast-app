@@ -8,20 +8,24 @@ export const IDB_DATABASES = {
     upgradeFn: function (event) {
       const database = event.target.result;
 
+      database.createObjectStore(this.name, {
+        keyPath: this.keyPath
+      });
+    }
+  },
+  Episodes: {
+    name: 'Episodes',
+    version: 1,
+    keyPath: 'episodeId',
+    podcastIndex: 'podcastId',
+    upgradeFn: function (event) {
+      const database = event.target.result;
+
       const podcastsStore = database.createObjectStore(this.name, {
         keyPath: this.keyPath
       });
 
-      podcastsStore.createIndex('podcastName', 'podcastName', {
-        unique: false
-      });
-      podcastsStore.createIndex('podcastImage', 'podcastImage', {
-        unique: false
-      });
-      podcastsStore.createIndex('podcastAuthor', 'podcastAuthor', {
-        unique: false
-      });
-      podcastsStore.createIndex('podcastSummary', 'podcastSummary', {
+      podcastsStore.createIndex(this.podcastIndex, this.podcastIndex, {
         unique: false
       });
     }
