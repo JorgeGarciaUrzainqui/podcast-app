@@ -39,7 +39,7 @@ const PodcastDetails = () => {
   };
 
   return (
-    <div className="podcastDetails">
+    <div className="podcastDetails" data-testid="podcastDetails">
       <PodcastSideBar podcastInfo={podcastInfo} />
       <PodcastEpisodeCount
         episodeCount={episodes.length}

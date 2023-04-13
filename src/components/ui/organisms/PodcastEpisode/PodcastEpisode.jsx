@@ -30,7 +30,7 @@ const PodcastEpisode = () => {
   };
 
   return (
-    <div className="podcastEpisode">
+    <div className="podcastEpisode" data-testid="podcastEpisode">
       <PodcastSideBar
         podcastInfo={podcastInfo}
         onPodcastSideBarClick={handlePodcastSideBarClick}
