@@ -7,9 +7,10 @@ import Paragraph from '../../../atoms/Paragraph';
  *
  * @param {Object} props - props of the component
  * @param {string} props.episodeDescription - the episode description
+ * @param {string} [props.testId] - Optional. For testing purposes only. Indicates the data-testid to be used.
  * @returns JSX.Element the episode description component
  */
-const EpisodeDescription = ({ episodeDescription }) => {
+const EpisodeDescription = ({ episodeDescription, testId }) => {
   if (!episodeDescription) {
     return null;
   }
@@ -23,10 +24,18 @@ const EpisodeDescription = ({ episodeDescription }) => {
   );
 
   if (isHTMLDescription) {
-    return <DocumentContainer document={document} />;
+    return (
+      <DocumentContainer document={document} testId={`${testId}-document`} />
+    );
   }
 
-  return <Paragraph message={episodeDescription} />;
+  return (
+    <Paragraph message={episodeDescription} testId={`${testId}-paragraph`} />
+  );
+};
+
+EpisodeDescription.defaultProps = {
+  testId: 'episodeDescription'
 };
 
 export default EpisodeDescription;

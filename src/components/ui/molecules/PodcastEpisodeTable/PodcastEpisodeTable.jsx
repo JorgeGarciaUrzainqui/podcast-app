@@ -23,7 +23,7 @@ const PodcastEpisodeTable = ({ episodes, onClickEpisodeRow, isLoading }) => {
   };
 
   return (
-    <Table>
+    <Table testId="podcastEpisodeTable">
       <>
         <PodcastEpisodeTableHeader episodeColumns={episodeColumns} />
         <PodcastEpisodeTableRows

@@ -15,7 +15,7 @@ const PodcastEpisodeCount = ({ episodeCount, isLoading }) => {
   }
 
   return (
-    <div>
+    <div data-testid="podcastEpisodeCount">
       <Text message={`${PODCASTDETAIL_EPISODE_COUNT_LABEL} ${episodeCount}`} />
     </div>
   );
