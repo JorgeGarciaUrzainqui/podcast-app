@@ -1,5 +1,6 @@
 import { PODCASTDETAIL_EPISODE_COUNT_LABEL } from '../../../../constants';
 import Text from '../../atoms/Text';
+import './PodcastEpisodeCount.css';
 
 /**
  * Renders the number of episodes for a podcast
@@ -15,8 +16,11 @@ const PodcastEpisodeCount = ({ episodeCount, isLoading }) => {
   }
 
   return (
-    <div data-testid="podcastEpisodeCount">
-      <Text message={`${PODCASTDETAIL_EPISODE_COUNT_LABEL} ${episodeCount}`} />
+    <div data-testid="podcastEpisodeCount" className="podcastEpisodeCount">
+      <Text
+        message={`${PODCASTDETAIL_EPISODE_COUNT_LABEL} ${episodeCount}`}
+        variantClass="podcastEpisodeCount-text"
+      />
     </div>
   );
 };

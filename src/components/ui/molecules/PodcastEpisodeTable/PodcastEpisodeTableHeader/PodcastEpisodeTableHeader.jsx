@@ -1,3 +1,5 @@
+import './PodcastEpisodeTableHeader.css';
+
 /**
  * Renders the table header for episodes table
  *
@@ -10,7 +12,7 @@ const PodcastEpisodeTableHeader = ({ episodeColumns }) => {
   const episodeColumnValue = Object.values(episodeColumns);
 
   return (
-    <thead>
+    <thead className="podcastEpisodeTableHeader">
       <tr>
         {episodeColumnKeys.map((episodeColumnKey, index) => (
           <th key={episodeColumnKey}>{episodeColumnValue[index]}</th>

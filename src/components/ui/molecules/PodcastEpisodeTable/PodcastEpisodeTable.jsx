@@ -1,6 +1,7 @@
 import Table from '../../atoms/Table/Table';
 import PodcastEpisodeTableHeader from './PodcastEpisodeTableHeader';
 import PodcastEpisodeTableRows from './PodcastEpisodeTableRows';
+import './PodcastEpisodeTable.css';
 
 /**
  * Renders a table with the episodes available for the podcast
@@ -23,7 +24,7 @@ const PodcastEpisodeTable = ({ episodes, onClickEpisodeRow, isLoading }) => {
   };
 
   return (
-    <Table testId="podcastEpisodeTable">
+    <Table testId="podcastEpisodeTable" variantClass="podcastEpisodeTable">
       <>
         <PodcastEpisodeTableHeader episodeColumns={episodeColumns} />
         <PodcastEpisodeTableRows

@@ -1,0 +1,8 @@
+.podcastEpisodeTableHeader tr {
+  border-bottom: 0.1rem solid grey;
+}
+
+.podcastEpisodeTableHeader th {
+  text-align: start;
+  padding: 0.5rem;
+}

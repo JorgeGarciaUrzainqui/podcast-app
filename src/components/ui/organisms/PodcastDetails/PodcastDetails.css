@@ -1,0 +1,25 @@
+.podcastDetails {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-template-rows: max-content max-content;
+  grid-template-areas:
+    'podcastSideBar podcastEpisodeCount'
+    'podcastSideBar podcastEpisodeTable';
+}
+
+.podcastDetails .podcastSideBar {
+  margin-left: 0.5rem;
+  margin-right: 5rem;
+  grid-area: podcastSideBar;
+}
+
+.podcastDetails .podcastEpisodeCount {
+  grid-area: podcastEpisodeCount;
+  margin-bottom: 2.5rem;
+}
+
+.podcastDetails .podcastEpisodeTable {
+  grid-area: podcastEpisodeTable;
+}

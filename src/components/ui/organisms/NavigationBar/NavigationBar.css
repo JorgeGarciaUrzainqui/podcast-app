@@ -3,6 +3,8 @@
 }
 
 .navigationBar .clickableText-text {
-  color: aqua;
+  color: darkcyan;
   cursor: pointer;
+  font-size: large;
+  font-weight: bold;
 }

@@ -14,8 +14,8 @@ describe('Podcast Episode component', () => {
   }));
 
   const DEFAULT_PODCAST_EPISODE_TESTID = 'podcastEpisode';
-  const DEFAULT_PODCAST_DETAIL_TESTID = 'podcastDetail';
-  const DEFAULT_PODCAST_DETAIL_INFO_TESTID = `${DEFAULT_PODCAST_DETAIL_TESTID}-podcastInfo`;
+  const DEFAULT_PODCAST_SIDEBAR_TESTID = 'podcastSideBar';
+  const DEFAULT_PODCAST_SIDEBAR_INFO_TESTID = `${DEFAULT_PODCAST_SIDEBAR_TESTID}-podcastInfo`;
   const DEFAULT_EPISODE_PLAYER_TESTID = 'episodePlayer';
 
   it('should render without crash', async () => {
@@ -51,10 +51,10 @@ describe('Podcast Episode component', () => {
     );
 
     expect(screen.getByTestId(DEFAULT_PODCAST_EPISODE_TESTID)).toBeVisible();
-    expect(screen.getByTestId(DEFAULT_PODCAST_DETAIL_TESTID)).toBeVisible();
+    expect(screen.getByTestId(DEFAULT_PODCAST_SIDEBAR_TESTID)).toBeVisible();
     expect(screen.getByTestId(DEFAULT_EPISODE_PLAYER_TESTID)).toBeVisible();
 
-    fireEvent.click(screen.getByTestId(DEFAULT_PODCAST_DETAIL_INFO_TESTID));
+    fireEvent.click(screen.getByTestId(DEFAULT_PODCAST_SIDEBAR_INFO_TESTID));
 
     const expectedURL = PODCAST_DETAIL_PAGE_ROUTER_PATH.replace(
       PODCASTID_PARAM,

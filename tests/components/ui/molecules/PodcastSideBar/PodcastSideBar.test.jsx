@@ -12,7 +12,7 @@ describe('Podcast Side Bar component', () => {
     podcastSummary: 'This is the summary of the podcast'
   };
 
-  const DEFAULT_PODCAST_SIDEBAR_TESTID = 'podcastDetail';
+  const DEFAULT_PODCAST_SIDEBAR_TESTID = 'podcastSideBar';
   const DEFAULT_PODCAST_SIDEBAR_IMAGE_TESTID = `${DEFAULT_PODCAST_SIDEBAR_TESTID}-image`;
   const DEFAULT_PODCAST_SIDEBAR_INFO_TESTID = `${DEFAULT_PODCAST_SIDEBAR_TESTID}-podcastInfo`;
   const DEFAULT_PODCAST_SIDEBAR_DESCRIPTION_TESTID = `${DEFAULT_PODCAST_SIDEBAR_TESTID}-description`;

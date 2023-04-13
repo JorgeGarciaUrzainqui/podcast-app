@@ -1,0 +1,6 @@
+.standardPageTemplate {
+  display: grid;
+  row-gap: 1vh;
+  grid-template-columns: auto;
+  grid-template-rows: max-content auto;
+}

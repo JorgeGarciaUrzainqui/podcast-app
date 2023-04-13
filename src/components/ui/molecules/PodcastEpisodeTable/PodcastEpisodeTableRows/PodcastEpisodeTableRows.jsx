@@ -1,4 +1,5 @@
 import PodcastEpisodeTableRow from './PodcastEpisodeTableRow/PodcastEpisodeTableRow';
+import './PodcastEpisodeTableRows.css';
 
 /**
  * Renders the table body for episodes table
@@ -17,7 +18,7 @@ const PodcastEpisodeTableRows = ({
   const episodeColumnKeys = Object.keys(episodeColumns);
 
   return (
-    <tbody>
+    <tbody className="podcastEpisodeTableRows">
       {episodeRows.map((episodeRow) => (
         <PodcastEpisodeTableRow
           key={episodeRow.episodeId}

@@ -1,3 +1,41 @@
+.podcastCard {
+  cursor: pointer;
+  width: 10rem;
+  height: fit-content;
+  padding: 0.1rem;
+  margin-top: calc(0.1rem + 2.5rem);
+  display: grid;
+  grid-template-columns: max-content;
+  grid-template-rows: 2.5rem max-content max-content;
+  row-gap: 0.1rem;
+  justify-content: center;
+  justify-items: center;
+  border: 0.2rem solid rgba(53, 53, 53, 0.4);
+  border-top: 0.1rem solid rgba(53, 53, 53, 0.1);
+}
+
+.podcastCard-image {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  top: -2.5rem;
+  border-radius: 50%;
+}
+
+.podcastCard_text {
+  text-align: center;
+  width: inherit;
+  white-space: normal;
+  overflow: hidden;
+}
+
 .podcastCard-name {
+  font-size: small;
   text-transform: uppercase;
+  font-weight: bold;
+}
+
+.podcastCard-author {
+  color: grey;
+  font-size: x-small;
 }

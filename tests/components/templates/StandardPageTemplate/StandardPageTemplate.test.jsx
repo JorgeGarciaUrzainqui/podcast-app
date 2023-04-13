@@ -7,6 +7,7 @@ import MockBody from './__mocks__/MockBody';
 
 describe('Standard Page Template component', () => {
   const DEFAULT_TESTID = 'standardPageTemplate';
+  const DEFAULT_CLASS = 'standardPageTemplate';
 
   it('should render without crash with mandatory and default props', () => {
     render(
@@ -17,7 +18,7 @@ describe('Standard Page Template component', () => {
     );
 
     expect(screen.getByTestId(DEFAULT_TESTID)).toBeVisible();
-    expect(screen.getByTestId(DEFAULT_TESTID)).not.toHaveClass();
+    expect(screen.getByTestId(DEFAULT_TESTID)).toHaveClass(DEFAULT_CLASS);
     expect(screen.getByTestId(DEFAULT_TESTID).children).toHaveLength(2);
   });
 

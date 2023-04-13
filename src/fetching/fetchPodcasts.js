@@ -37,7 +37,9 @@ function getEntryName(entry) {
 }
 
 function getEntryImage(entry) {
-  return entry['im:image'][0].label;
+  const images = entry['im:image'];
+
+  return images[images.length - 1].label;
 }
 
 function getEntryAuthor(entry) {

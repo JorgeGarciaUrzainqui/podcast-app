@@ -1,3 +1,5 @@
+import './PodcastEpisodeTableRow.css';
+
 /**
  * Renders an episode table row
  *
@@ -28,14 +30,23 @@ const PodcastEpisodeTableRow = ({
 
         if (episodeColumnKey === EPISODE_TITLE_PROPERTY) {
           return (
-            <td key={`${episodeId}-${episodeColumnKey}`} onClick={handleClick}>
+            <td
+              key={`${episodeId}-${episodeColumnKey}`}
+              onClick={handleClick}
+              className="podcastEpisodeTableRow-episode_clickable"
+            >
               {episodeRowInfo}
             </td>
           );
         }
 
         return (
-          <td key={`${episodeId}-${episodeColumnKey}`}>{episodeRowInfo}</td>
+          <td
+            key={`${episodeId}-${episodeColumnKey}`}
+            className="podcastEpisodeTableRow-episode"
+          >
+            {episodeRowInfo}
+          </td>
         );
       })}
     </tr>

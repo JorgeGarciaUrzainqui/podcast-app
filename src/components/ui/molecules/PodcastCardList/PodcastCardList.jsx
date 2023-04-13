@@ -2,6 +2,7 @@ import React from 'react';
 
 import PodcastCard from './PodcastCard';
 import { getPodcastListToRender } from './getPodcastListToRender';
+import './PodcastCardList.css';
 
 /**
  * Generates the Podcast Card List component
@@ -16,7 +17,7 @@ const PodcastCardList = ({ podcastList, onPodcastCardClick, filterValue }) => {
   const renderPodcastList = getPodcastListToRender(podcastList, filterValue);
 
   return (
-    <div data-testid="podcastCardList">
+    <div data-testid="podcastCardList" className="podcastCardList">
       {renderPodcastList &&
         renderPodcastList.map((renderPodCast) => {
           return (

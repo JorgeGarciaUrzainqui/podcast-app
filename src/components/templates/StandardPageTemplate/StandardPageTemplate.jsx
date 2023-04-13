@@ -1,4 +1,5 @@
 import React from 'react';
+import './StandardPageTemplate.css';
 
 /**
  * Defines the page skeleton of a standard page of the application
@@ -17,7 +18,10 @@ const StandardPageTemplate = ({
   testId
 }) => {
   return (
-    <div className={variantClass} data-testid={testId}>
+    <div
+      className={`standardPageTemplate ${variantClass}`}
+      data-testid={testId}
+    >
       {headerPage}
       {bodyPage}
     </div>

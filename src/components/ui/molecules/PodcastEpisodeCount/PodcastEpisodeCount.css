@@ -1,0 +1,9 @@
+.podcastEpisodeCount {
+  border: 0.1rem solid grey;
+  padding: 0.5rem;
+}
+
+.podcastEpisodeCount-text {
+  font-size: x-large;
+  font-weight: bold;
+}

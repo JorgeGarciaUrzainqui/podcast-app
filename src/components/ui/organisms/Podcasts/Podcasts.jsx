@@ -7,6 +7,7 @@ import {
 } from '../../../../constants';
 import PodcastFilter from '../../molecules/PodcastFilter';
 import PodcastCardList from '../../molecules/PodcastCardList';
+import './Podcasts.css';
 
 /**
  * Renders the main page body with podcasts
@@ -37,7 +38,7 @@ const Podcasts = ({ podcasts }) => {
   };
 
   return (
-    <div data-testid="podcasts">
+    <div data-testid="podcasts" className="podcasts">
       <PodcastFilter filterValue={filter} onFilterChange={handleFilterChange} />
       <PodcastCardList
         podcastList={podcasts}

@@ -10,7 +10,7 @@ import {
 
 describe('Podcast Details component', () => {
   const DEFAULT_PODCAST_DETAILS_TESTID = 'podcastDetails';
-  const DEFAULT_PODCAST_DETAIL_TESTID = 'podcastDetail';
+  const DEFAULT_PODCAST_SIDEBAR_TESTID = 'podcastSideBar';
   const DEFAULT_PODCAST_EPISODE_COUNT_TESTID = 'podcastEpisodeCount';
   const DEFAULT_PODCAST_EPISODE_TABLE_TESTID = 'podcastEpisodeTable';
 
@@ -51,7 +51,7 @@ describe('Podcast Details component', () => {
     );
 
     expect(screen.getByTestId(DEFAULT_PODCAST_DETAILS_TESTID)).toBeVisible();
-    expect(screen.getByTestId(DEFAULT_PODCAST_DETAIL_TESTID)).toBeVisible();
+    expect(screen.getByTestId(DEFAULT_PODCAST_SIDEBAR_TESTID)).toBeVisible();
     expect(
       screen.getByTestId(DEFAULT_PODCAST_EPISODE_COUNT_TESTID)
     ).toBeVisible();

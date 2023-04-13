@@ -35,23 +35,40 @@ const PodcastSideBar = ({ podcastInfo, onPodcastSideBarClick }) => {
   };
 
   return (
-    <div data-testid="podcastDetail">
+    <div className="podcastSideBar" data-testid="podcastSideBar">
       <ClickableContainer
         onContainerClick={handleClick}
-        testId="podcastDetail-image"
+        testId="podcastSideBar-image"
+        variantClass="podcastSideBar-podcastImage"
       >
         <Image imageSrc={podcastImage} altText={podcastName} />
       </ClickableContainer>
       <ClickableContainer
         onContainerClick={handleClick}
-        testId="podcastDetail-podcastInfo"
+        testId="podcastSideBar-podcastInfo"
+        variantClass="podcastSideBar-podcastInfo"
       >
-        <Text message={podcastName} />
-        <Text message={`${PODCASTDETAIL_AUTHOR_LABEL} ${podcastAuthor}`} />
+        <Text
+          message={podcastName}
+          variantClass="podcastSideBar-podcastInfo_tile"
+        />
+        <Text
+          message={`${PODCASTDETAIL_AUTHOR_LABEL} ${podcastAuthor}`}
+          variantClass="podcastSideBar-podcastInfo_author"
+        />
       </ClickableContainer>
-      <div data-testid="podcastDetail-description">
-        <Text message={PODCASTDETAIL_DESCRIPTION_LABEL} />
-        <Text message={podcastSummary} />
+      <div
+        data-testid="podcastSideBar-description"
+        className="podcastSideBar-summary"
+      >
+        <Text
+          message={PODCASTDETAIL_DESCRIPTION_LABEL}
+          variantClass="podcastSideBar-summary_tile"
+        />
+        <Text
+          message={podcastSummary}
+          variantClass="podcastSideBar-summary_desc"
+        />
       </div>
     </div>
   );

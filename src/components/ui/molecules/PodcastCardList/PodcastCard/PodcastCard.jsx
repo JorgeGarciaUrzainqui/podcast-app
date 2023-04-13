@@ -41,12 +41,12 @@ const PodcastCard = ({ podcastInfo, onPodcastCardClick }) => {
         />
         <Text
           message={podcastName.toUpperCase()}
-          variantClass="podcastCard-name"
+          variantClass="podcastCard_text podcastCard-name"
           testId="podcastCard-name"
         />
         <Text
           message={`${PODCASTCARD_AUTHOR_LABEL} ${podcastAuthor}`}
-          variantClass="podcastCard-author"
+          variantClass="podcastCard_text podcastCard-author"
           testId="podcastCard-author"
         />
       </>

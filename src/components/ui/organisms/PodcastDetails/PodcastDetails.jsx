@@ -8,6 +8,7 @@ import {
 import PodcastEpisodeCount from '../../molecules/PodcastEpisodeCount';
 import PodcastEpisodeTable from '../../molecules/PodcastEpisodeTable/PodcastEpisodeTable';
 import PodcastSideBar from '../../molecules/PodcastSideBar';
+import './PodcastDetails.css';
 
 /**
  * Renders the podcast page body with podcast information an episode list
