@@ -1,0 +1,30 @@
+.episodePlayer {
+  display: grid;
+  height: max-content;
+  grid-template-columns: auto;
+  grid-template-rows: max-content max-content max-content;
+  grid-template-areas:
+    'episodeTitle'
+    'episodeDescription'
+    'episodePlayer';
+  row-gap: 0.5rem;
+  padding: 1rem;
+  border: 0.1rem solid grey;
+}
+
+.episodePlayer-title {
+  grid-area: episodeTitle;
+  font-size: large;
+  font-weight: bold;
+}
+
+.episodePlayer-description {
+  grid-area: episodeDescription;
+  font-style: italic;
+}
+
+.episodePlayer-player {
+  grid-area: episodePlayer;
+  width: 100%;
+  border-radius: 0;
+}

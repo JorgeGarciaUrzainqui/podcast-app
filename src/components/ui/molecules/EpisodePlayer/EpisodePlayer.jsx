@@ -3,6 +3,7 @@ import AudioPlayer from '../../atoms/AudioPlayer';
 import Paragraph from '../../atoms/Paragraph';
 import Text from '../../atoms/Text';
 import EpisodeDescription from './EpisodeDescription';
+import './EpisodePlayer.css';
 
 /**
  * Generates the episode player component
@@ -25,14 +26,20 @@ const EpisodePlayer = ({ episodeInfo }) => {
 
   return (
     <div className="episodePlayer" data-testid="episodePlayer">
-      <Text message={episodeTitle} testId="episodePlayer-title" />
+      <Text
+        message={episodeTitle}
+        testId="episodePlayer-title"
+        variantClass="episodePlayer-title"
+      />
       <EpisodeDescription
         episodeDescription={episodeDescription}
+        variantClass="episodePlayer-description"
         testId="episodePlayer-description"
       />
       <AudioPlayer
         audioSrc={episodeUrl}
         preloadAudio="none"
+        variantClass="episodePlayer-player"
         testId="episodePlayer-player"
       >
         <Paragraph message={fallbackMessage} testId="episodePlayer-fallback" />

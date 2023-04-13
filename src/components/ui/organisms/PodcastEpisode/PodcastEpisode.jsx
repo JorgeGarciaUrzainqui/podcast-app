@@ -6,6 +6,7 @@ import {
 } from '../../../../constants';
 import PodcastSideBar from '../../molecules/PodcastSideBar';
 import EpisodePlayer from '../../molecules/EpisodePlayer';
+import './PodcastEpisode.css';
 
 /**
  * Renders the episode page body with podcast information an episode player

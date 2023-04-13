@@ -14,6 +14,7 @@
 }
 
 .podcastSideBar-podcastInfo {
+  width: 18rem;
   padding: 1rem;
   display: grid;
   border-top: 0.1rem solid grey;
@@ -24,15 +25,18 @@
 .podcastSideBar-podcastInfo_tile {
   font-size: large;
   font-weight: bold;
+  width: inherit;
 }
 
 .podcastSideBar-podcastInfo_author {
   font-weight: bold;
   font-style: italic;
+  width: inherit;
   color: grey;
 }
 
 .podcastSideBar-summary {
+  width: 18rem;
   border-top: 0.1rem solid grey;
   padding: 1rem;
   display: grid;
