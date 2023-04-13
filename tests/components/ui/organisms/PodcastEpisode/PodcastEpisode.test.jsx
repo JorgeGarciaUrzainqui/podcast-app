@@ -10,9 +10,7 @@ import {
 describe('Podcast Episode component', () => {
   vi.mock('react-router-dom', () => ({
     ...vi.importActual('react-router-dom'),
-    useNavigate: () => vi.fn(),
-    useLocation: () => {},
-    useParams: () => {}
+    useNavigate: () => vi.fn()
   }));
 
   const DEFAULT_PODCAST_EPISODE_TESTID = 'podcastEpisode';
@@ -28,32 +26,29 @@ describe('Podcast Episode component', () => {
       () => mockNavigate
     );
     const podcastId = 'Podcast01';
-    const locationPayload = {
-      state: {
-        podcastInfo: {
-          podcastId,
-          podcastName: 'PodCast 01',
-          podcastImage: 'PodCastImage',
-          podcastAuthor: 'Author 01',
-          podcastSummary: 'This is the summary of the podcast'
-        },
-        episodeInfo: {
-          episodeId: 'Episode01',
-          podcastId,
-          episodeTitle: 'Episode 01',
-          episodeDescription: 'This is the description of the episode',
-          episodeUrl: 'Episode01'
-        }
-      }
-    };
-    vi.spyOn(reactRouterDOM, 'useLocation').mockImplementation(
-      () => locationPayload
-    );
-    vi.spyOn(reactRouterDOM, 'useParams').mockImplementation(() => ({
-      podcastId
-    }));
 
-    render(<PodcastEpisode />);
+    const podcastInfo = {
+      podcastId,
+      podcastName: 'PodCast 01',
+      podcastImage: 'PodCastImage',
+      podcastAuthor: 'Author 01',
+      podcastSummary: 'This is the summary of the podcast'
+    };
+    const episodeInfo = {
+      episodeId: 'Episode01',
+      podcastId,
+      episodeTitle: 'Episode 01',
+      episodeDescription: 'This is the description of the episode',
+      episodeUrl: 'Episode01'
+    };
+
+    render(
+      <PodcastEpisode
+        podcastId={podcastId}
+        podcastInfo={podcastInfo}
+        episodeInfo={episodeInfo}
+      />
+    );
 
     expect(screen.getByTestId(DEFAULT_PODCAST_EPISODE_TESTID)).toBeVisible();
     expect(screen.getByTestId(DEFAULT_PODCAST_DETAIL_TESTID)).toBeVisible();
@@ -67,7 +62,7 @@ describe('Podcast Episode component', () => {
     );
     expect(mockNavigate).toHaveBeenCalledTimes(1);
     expect(mockNavigate).toHaveBeenCalledWith(expectedURL, {
-      state: { podcastInfo: { ...locationPayload.state.podcastInfo } }
+      state: { podcastInfo }
     });
   });
 });

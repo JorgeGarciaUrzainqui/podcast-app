@@ -1,11 +1,10 @@
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import {
   EPISODEID_PARAM,
   PODCASTID_PARAM,
   PODCAST_EPISODE_PAGE_ROUTER_PATH
 } from '../../../../constants';
-import useEpisodes from '../../../../hooks/useEpisodes';
 import PodcastEpisodeCount from '../../molecules/PodcastEpisodeCount';
 import PodcastEpisodeTable from '../../molecules/PodcastEpisodeTable/PodcastEpisodeTable';
 import PodcastSideBar from '../../molecules/PodcastSideBar';
@@ -13,15 +12,13 @@ import PodcastSideBar from '../../molecules/PodcastSideBar';
 /**
  * Renders the podcast page body with podcast information an episode list
  *
+ * @param {Object} podcastInfo - the podcast selected information
+ * @param {array} episodes - the list of episodes to render
+ * @param {boolean} isLoadingData - indicates if the page is loading some data
  * @returns JSX.Element the body of the podcast page
  */
-const PodcastDetails = () => {
+const PodcastDetails = ({ podcastInfo, episodes, isLoading }) => {
   const navigate = useNavigate();
-  const { podcastId } = useParams();
-  const { state } = useLocation();
-  const { episodes, isLoading } = useEpisodes(podcastId);
-
-  const podcastInfo = state?.podcastInfo || {};
 
   const onClickEpisodeRow = (episodeId) => {
     const episodeInfo = episodes.find(

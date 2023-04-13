@@ -1,3 +1,5 @@
+import { useLocation, useParams } from 'react-router-dom';
+
 import StandardPageTemplate from '../../templates/StandardPageTemplate';
 import NavigationBar from '../../ui/organisms/NavigationBar';
 import PodcastEpisode from '../../ui/organisms/PodcastEpisode/PodcastEpisode';
@@ -9,10 +11,22 @@ import './EpisodePage.css';
  * @returns JSX.Element - the episode page component
  */
 const EpisodePage = () => {
+  const { state } = useLocation();
+  const { podcastId } = useParams();
+
+  const podcastInfo = state?.podcastInfo || {};
+  const episodeInfo = state?.episodeInfo || {};
+
   return (
     <StandardPageTemplate
       headerPage={<NavigationBar />}
-      bodyPage={<PodcastEpisode />}
+      bodyPage={
+        <PodcastEpisode
+          podcastId={podcastId}
+          podcastInfo={podcastInfo}
+          episodeInfo={episodeInfo}
+        />
+      }
       variantClass="podcastPage"
       testId="podcastPage"
     />

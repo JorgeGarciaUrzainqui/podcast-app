@@ -33,16 +33,8 @@ describe('Podcast Details component', () => {
 
   vi.mock('react-router-dom', () => ({
     ...vi.importActual('react-router-dom'),
-    useNavigate: () => vi.fn(),
-    useLocation: () => {},
-    useParams: () => {}
+    useNavigate: () => vi.fn()
   }));
-
-  vi.mock('../../../../../src/hooks/useEpisodes', () => {
-    return {
-      default: () => {}
-    };
-  });
 
   it('should render without crash', async () => {
     const reactRouterDOM = await import('react-router-dom');
@@ -50,20 +42,13 @@ describe('Podcast Details component', () => {
     vi.spyOn(reactRouterDOM, 'useNavigate').mockImplementation(
       () => mockNavigate
     );
-    vi.spyOn(reactRouterDOM, 'useLocation').mockImplementation(() => ({
-      state: { podcastInfo: TEST_PODCAST_INFO }
-    }));
-    vi.spyOn(reactRouterDOM, 'useParams').mockImplementation(() => ({
-      podcastId: TEST_PODCAST_ID
-    }));
 
-    const useEpisodes = await import('../../../../../src/hooks/useEpisodes');
-    vi.spyOn(useEpisodes, 'default').mockImplementation(() => ({
-      episodes: [TEST_EPISODE_INFO],
-      isLoading: false
-    }));
-
-    render(<PodcastDetails />);
+    render(
+      <PodcastDetails
+        podcastInfo={TEST_PODCAST_INFO}
+        episodes={[TEST_EPISODE_INFO]}
+      />
+    );
 
     expect(screen.getByTestId(DEFAULT_PODCAST_DETAILS_TESTID)).toBeVisible();
     expect(screen.getByTestId(DEFAULT_PODCAST_DETAIL_TESTID)).toBeVisible();

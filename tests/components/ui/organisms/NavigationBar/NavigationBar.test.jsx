@@ -13,7 +13,7 @@ describe('Navigation Bar component', () => {
     useNavigate: () => vi.fn()
   }));
 
-  it('should render without crash', () => {
+  it('should render without crash with default props', () => {
     render(<NavigationBar />);
 
     expect(screen.getByTestId(NAVIGATION_BAR_TESTID)).toBeVisible();
@@ -21,6 +21,9 @@ describe('Navigation Bar component', () => {
       screen.getByTestId(`${MAIN_PAGE_LINK_TESTID}-container`)
     ).toBeVisible();
     expect(screen.getByTestId(`${MAIN_PAGE_LINK_TESTID}-text`)).toBeVisible();
+    expect(
+      screen.queryByTestId(`${MAIN_PAGE_LINK_TESTID}-loadingImage`)
+    ).not.toBeInTheDocument();
   });
 
   it('should launch navigation to main page url path', async () => {
@@ -37,5 +40,13 @@ describe('Navigation Bar component', () => {
 
     expect(mockNavigate).toHaveBeenCalledTimes(1);
     expect(mockNavigate).toHaveBeenCalledWith(MAIN_PAGE_ROUTER_PATH);
+  });
+
+  it('should render loading image when loading', () => {
+    render(<NavigationBar isLoadingData />);
+
+    expect(
+      screen.getByTestId(`${NAVIGATION_BAR_TESTID}-loadingImage`)
+    ).toBeVisible();
   });
 });

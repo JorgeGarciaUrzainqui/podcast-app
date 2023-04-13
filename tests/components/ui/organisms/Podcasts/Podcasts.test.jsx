@@ -8,20 +8,11 @@ import {
 } from '../../../../../src/constants';
 
 describe('Podcasts component', () => {
-  vi.mock('../../../../../src/hooks/usePodcasts', () => {
-    return {
-      default: () => ({
-        podcasts: [
-          {
-            podcastId: 'Podcast01',
-            podcastName: ' Podcast 01',
-            podcastAuthor: 'Author 01'
-          }
-        ],
-        isLoading: false
-      })
-    };
-  });
+  const TEST_PODCAST = {
+    podcastId: 'Podcast01',
+    podcastName: ' Podcast 01',
+    podcastAuthor: 'Author 01'
+  };
 
   vi.mock('react-router-dom', () => ({
     ...vi.importActual('react-router-dom'),
@@ -29,7 +20,7 @@ describe('Podcasts component', () => {
   }));
 
   it('should render without crash', () => {
-    render(<Podcasts />);
+    render(<Podcasts podcasts={[TEST_PODCAST]} />);
 
     expect(screen.getByTestId('podcastFilter')).toBeVisible();
     expect(screen.getByTestId('podcastCardList')).toBeVisible();
@@ -46,27 +37,20 @@ describe('Podcasts component', () => {
       () => mockNavigate
     );
 
-    const expectedURL = PODCAST_DETAIL_PAGE_ROUTER_PATH.replace(
-      PODCASTID_PARAM,
-      'Podcast01'
-    );
-    const expectedPayload = {
-      state: {
-        podcastInfo: {
-          podcastId: 'Podcast01',
-          podcastName: ' Podcast 01',
-          podcastAuthor: 'Author 01'
-        }
-      }
-    };
-
-    render(<Podcasts />);
+    render(<Podcasts podcasts={[TEST_PODCAST]} />);
 
     const postcastCardList = screen.getAllByTestId('podcastCard');
 
     fireEvent.click(postcastCardList[0]);
 
+    const expectedURL = PODCAST_DETAIL_PAGE_ROUTER_PATH.replace(
+      PODCASTID_PARAM,
+      'Podcast01'
+    );
+
     expect(mockNavigate).toHaveBeenCalledTimes(1);
-    expect(mockNavigate).toHaveBeenCalledWith(expectedURL, expectedPayload);
+    expect(mockNavigate).toHaveBeenCalledWith(expectedURL, {
+      state: { podcastInfo: TEST_PODCAST }
+    });
   });
 });

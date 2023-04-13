@@ -1,4 +1,4 @@
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import {
   PODCASTID_PARAM,
@@ -10,15 +10,13 @@ import EpisodePlayer from '../../molecules/EpisodePlayer';
 /**
  * Renders the episode page body with podcast information an episode player
  *
+ * @param {string} podcastId - the podcast id
+ * @param {Object} podcastInfo - the podcast selected information
+ * @param {Object} episodeInfo - the episode selected information
  * @returns JSX.Element the body of the episode page
  */
-const PodcastEpisode = () => {
+const PodcastEpisode = ({ podcastId, podcastInfo, episodeInfo }) => {
   const navigate = useNavigate();
-  const { state } = useLocation();
-  const { podcastId } = useParams();
-
-  const podcastInfo = state?.podcastInfo || {};
-  const episodeInfo = state?.episodeInfo || {};
 
   const handlePodcastSideBarClick = () => {
     const navigationUrl = PODCAST_DETAIL_PAGE_ROUTER_PATH.replace(

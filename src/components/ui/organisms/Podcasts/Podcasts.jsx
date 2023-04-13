@@ -5,18 +5,17 @@ import {
   PODCASTID_PARAM,
   PODCAST_DETAIL_PAGE_ROUTER_PATH
 } from '../../../../constants';
-import usePodcasts from '../../../../hooks/usePodcasts';
 import PodcastFilter from '../../molecules/PodcastFilter';
 import PodcastCardList from '../../molecules/PodcastCardList';
 
 /**
  * Renders the main page body with podcasts
  *
+ * @param {array} podcasts - the list of podcast to render
  * @returns JSX.Element the body of the main page
  */
-const Podcasts = () => {
+const Podcasts = ({ podcasts }) => {
   const [filter, setFilter] = useState('');
-  const { podcasts, isLoading } = usePodcasts();
   const navigate = useNavigate();
 
   const handleFilterChange = (e) => {
