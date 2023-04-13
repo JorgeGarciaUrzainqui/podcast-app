@@ -1,10 +1,14 @@
 .navigationBar {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 2.5rem;
+  border-bottom: 0.1rem solid grey;
 }
 
-.navigationBar .clickableText-text {
+.navigationBar-mainPage .clickableText-text {
   color: darkcyan;
   cursor: pointer;
-  font-size: large;
+  font-size: x-large;
   font-weight: bold;
 }

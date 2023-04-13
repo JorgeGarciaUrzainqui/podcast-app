@@ -29,6 +29,7 @@ const NavigationBar = ({ isLoadingData }) => {
       <LoadingDataImage
         isLoadingData={isLoadingData}
         testId="navigationBar-loadingImage"
+        variantClass="navigationBar-loadingImage"
       />
     </div>
   );
